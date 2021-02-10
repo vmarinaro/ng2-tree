@@ -2481,6 +2481,16 @@ var Tree = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Tree.prototype, "checkedIsVisible", {
+        get: function () {
+            return !!Object(__WEBPACK_IMPORTED_MODULE_0__utils_fn_utils__["b" /* get */])(this.node.settings, 'checkedIsVisible');
+        },
+        set: function (checkedIsVisible) {
+            this.node.settings = Object.assign({}, this.node.settings, { checkedIsVisible: checkedIsVisible });
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Tree.prototype, "checkedChildren", {
         get: function () {
             return this.hasLoadedChildern() ? this.children.filter(function (child) { return child.checked; }) : [];
@@ -2914,6 +2924,7 @@ var TreeModelSettings = (function () {
             rightMenu: true,
             isCollapsedOnInit: false,
             checked: false,
+            checkedIsVisible: false,
             keepNodesInDOM: false,
             selectionAllowed: true
         });

@@ -1419,6 +1419,7 @@ var TreeInternalComponent = (function () {
         this.nodeMenuService = nodeMenuService;
         this.treeService = treeService;
         this.nodeElementRef = nodeElementRef;
+        this.autocheckChildren = false;
         this.isSelected = false;
         this.isRightMenuVisible = false;
         this.isLeftMenuVisible = false;
@@ -1609,7 +1610,10 @@ var TreeInternalComponent = (function () {
         }
         this.checkboxElementRef.nativeElement.indeterminate = false;
         this.treeService.fireNodeChecked(this.tree);
-        this.executeOnChildController(function (controller) { return controller.check(); });
+        // this.executeOnChildController(controller => controller.check());
+        if (this.autocheckChildren) {
+            this.executeOnChildController(function (controller) { return controller.check(); });
+        }
         this.tree.checked = true;
     };
     TreeInternalComponent.prototype.onNodeUnchecked = function () {

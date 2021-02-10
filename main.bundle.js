@@ -1440,7 +1440,7 @@ var TreeInternalComponent = (function () {
             this.treeService.setController(nodeId, this.controller);
         }
         this.settings = this.settings || new __WEBPACK_IMPORTED_MODULE_1__tree_types__["b" /* Ng2TreeSettings */]();
-        this.isReadOnly = !Object(__WEBPACK_IMPORTED_MODULE_9__utils_fn_utils__["b" /* get */])(this.settings, 'enableCheckboxes', true);
+        this.isReadOnly = !Object(__WEBPACK_IMPORTED_MODULE_9__utils_fn_utils__["b" /* get */])(this.settings, 'enableCheckboxes', true) && !Object(__WEBPACK_IMPORTED_MODULE_9__utils_fn_utils__["b" /* get */])(this.settings, 'checkedIsVisible', true);
         if (this.tree.isRoot() && this.settings.rootIsVisible === false) {
             this.tree.disableCollapseOnInit();
         }

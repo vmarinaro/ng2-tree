@@ -1649,18 +1649,24 @@ var TreeInternalComponent = (function () {
         setTimeout(function () {
             var checkedChildrenAmount = _this.tree.checkedChildrenAmount();
             if (checkedChildrenAmount === 0) {
-                _this.checkboxElementRef.nativeElement.indeterminate = false;
+                if (_this.checkboxElementRef) {
+                    _this.checkboxElementRef.nativeElement.indeterminate = false;
+                }
                 _this.tree.checked = false;
                 _this.treeService.fireNodeUnchecked(_this.tree);
             }
             else if (checkedChildrenAmount === _this.tree.loadedChildrenAmount()) {
-                _this.checkboxElementRef.nativeElement.indeterminate = false;
+                if (_this.checkboxElementRef) {
+                    _this.checkboxElementRef.nativeElement.indeterminate = false;
+                }
                 _this.tree.checked = true;
                 _this.treeService.fireNodeChecked(_this.tree);
             }
             else {
                 _this.tree.checked = false;
-                _this.checkboxElementRef.nativeElement.indeterminate = true;
+                if (_this.checkboxElementRef) {
+                    _this.checkboxElementRef.nativeElement.indeterminate = true && _this.autocheckChildren;
+                }
                 _this.treeService.fireNodeIndetermined(_this.tree);
             }
         });

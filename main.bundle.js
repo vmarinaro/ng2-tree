@@ -1653,14 +1653,14 @@ var TreeInternalComponent = (function () {
             var checkedChildrenAmount = _this.tree.checkedChildrenAmount();
             if (checkedChildrenAmount === 0) {
                 if (_this.checkboxElementRef) {
-                    _this.checkboxElementRef.nativeElement.indeterminate = false;
+                    _this.checkboxElementRef.nativeElement.indeterminate = null; // false;
                 }
                 _this.tree.checked = false;
                 _this.treeService.fireNodeUnchecked(_this.tree);
             }
             else if (checkedChildrenAmount === _this.tree.loadedChildrenAmount()) {
                 if (_this.checkboxElementRef) {
-                    _this.checkboxElementRef.nativeElement.indeterminate = false;
+                    _this.checkboxElementRef.nativeElement.indeterminate = null; // false;
                 }
                 _this.tree.checked = true;
                 _this.treeService.fireNodeChecked(_this.tree);
@@ -1668,7 +1668,7 @@ var TreeInternalComponent = (function () {
             else {
                 _this.tree.checked = false;
                 if (_this.checkboxElementRef) {
-                    _this.checkboxElementRef.nativeElement.indeterminate = true && _this.autocheckChildren;
+                    _this.checkboxElementRef.nativeElement.indeterminate = null; // true && this.autocheckChildren;
                 }
                 _this.treeService.fireNodeIndetermined(_this.tree);
             }

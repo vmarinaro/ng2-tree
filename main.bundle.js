@@ -1629,7 +1629,10 @@ var TreeInternalComponent = (function () {
         }
         this.checkboxElementRef.nativeElement.indeterminate = false;
         this.treeService.fireNodeUnchecked(this.tree);
-        this.executeOnChildController(function (controller) { return controller.uncheck(); });
+        // this.executeOnChildController(controller => controller.uncheck());
+        if (this.autocheckChildren) {
+            this.executeOnChildController(function (controller) { return controller.check(); });
+        }
         this.tree.checked = false;
     };
     TreeInternalComponent.prototype.executeOnChildController = function (executor) {

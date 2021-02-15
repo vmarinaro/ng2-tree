@@ -1655,18 +1655,18 @@ var TreeInternalComponent = (function () {
                 if (_this.checkboxElementRef) {
                     _this.checkboxElementRef.nativeElement.indeterminate = null; // false;
                 }
-                _this.tree.checked = false;
+                // this.tree.checked = false;
                 _this.treeService.fireNodeUnchecked(_this.tree);
             }
             else if (checkedChildrenAmount === _this.tree.loadedChildrenAmount()) {
                 if (_this.checkboxElementRef) {
                     _this.checkboxElementRef.nativeElement.indeterminate = null; // false;
                 }
-                _this.tree.checked = true;
+                // this.tree.checked = true;
                 _this.treeService.fireNodeChecked(_this.tree);
             }
             else {
-                _this.tree.checked = false;
+                // this.tree.checked = false;
                 if (_this.checkboxElementRef) {
                     _this.checkboxElementRef.nativeElement.indeterminate = null; // true && this.autocheckChildren;
                 }

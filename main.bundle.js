@@ -1615,7 +1615,7 @@ var TreeInternalComponent = (function () {
         if (!this.checkboxElementRef) {
             return;
         }
-        this.checkboxElementRef.nativeElement.indeterminate = false;
+        this.checkboxElementRef.nativeElement.indeterminate = null; // false;
         this.treeService.fireNodeChecked(this.tree);
         // this.executeOnChildController(controller => controller.check());
         if (this.autocheckChildren) {
@@ -1627,7 +1627,7 @@ var TreeInternalComponent = (function () {
         if (!this.checkboxElementRef) {
             return;
         }
-        this.checkboxElementRef.nativeElement.indeterminate = false;
+        this.checkboxElementRef.nativeElement.indeterminate = null; // false;
         this.treeService.fireNodeUnchecked(this.tree);
         // this.executeOnChildController(controller => controller.uncheck());
         if (this.autocheckChildren) {
